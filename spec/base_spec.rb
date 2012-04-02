@@ -40,6 +40,34 @@ describe Mailgun::Base do
     it "Mailgun#routes should return an instance of Mailgun::Route" do
       @mailgun.routes.should be_kind_of(Mailgun::Route)
     end
+
+    it "Mailgun#bounces should return an instance of Mailgun::Bounce" do
+      @mailgun.bounces.should be_kind_of(Mailgun::Bounce)
+    end
+
+    it "Mailgun#campaigns should return an instance of Mailgun::Campaign" do
+      @mailgun.campaigns.should be_kind_of(Mailgun::Campaign)
+    end
+
+    it "Mailgun#unsubscribes should return an instance of Mailgun::Unsubscribe" do
+      @mailgun.unsubscribes.should be_kind_of(Mailgun::Unsubscribe)
+    end
+
+    it "Mailgun#complaints should return an instance of Mailgun::Complaint" do
+      @mailgun.complaints.should be_kind_of(Mailgun::Complaint)
+    end
+
+    it "Mailgun#log should return an instance of Mailgun::Log" do
+      @mailgun.log.should be_kind_of(Mailgun::Log)
+    end
+
+    it "Mailgun#lists should return an instance of Mailgun::List" do
+      @mailgun.lists.should be_kind_of(Mailgun::List)
+    end
+
+    it "Mailgun#list_members should return an instance of Mailgun::List::Member" do
+      @mailgun.list_members.should be_kind_of(Mailgun::List::Member)
+    end
   end
 
 
