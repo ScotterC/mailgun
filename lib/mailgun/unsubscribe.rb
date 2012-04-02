@@ -15,14 +15,17 @@ module Mailgun
       end
     end
 
+    # Find a particular unsubscribe for a given domain
     def find(domain = Mailgun.domain, email)
       Mailgun.submit :get, unsubscribe_url(domain, email)
     end
 
+    # Add an unsubscribe for a given domain
     def add(email, domain=Mailgun.domain, tag='*')
       Mailgun.submit :post, unsubscribe_url(domain), {:address => email, :tag => tag}
     end
 
+    # Remove an unsubscribe for a given domain
     def remove(domain = Mailgun.domain, email)
       Mailgun.submit :delete, unsubscribe_url(domain, email)
     end

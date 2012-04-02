@@ -12,6 +12,13 @@ require "mailgun/complaint"
 require "mailgun/log"
 require "mailgun/list"
 require "mailgun/list/member"
+require "mailgun/campaign"
+require "mailgun/campaign/click"
+require "mailgun/campaign/complaint"
+require "mailgun/campaign/event"
+require "mailgun/campaign/open"
+require "mailgun/campaign/stat"
+require "mailgun/campaign/unsubscribe"
 
 #require "startup"
 

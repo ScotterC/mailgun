@@ -15,17 +15,19 @@ module Mailgun
       end
     end
 
+    # Find a particular bounced email for a given domain
     def find(domain = Mailgun.domain, email)
       Mailgun.submit :get, bounce_url(domain, email)
     end
 
+    # Add an email to the bounce list for a domain
     def add(domain = Mailgun.domain, email)
       Mailgun.submit :post, bounce_url(domain), :address => email
     end
 
     private
 
-    # Helper method to generate the proper url for Mailgun mailbox API calls
+    # Helper method to generate the proper url for Mailgun bounce API calls
     def bounce_url(domain, address=nil)
       domain = Mailgun.domain if Mailgun.domain
       "#{@mailgun.base_url}/#{domain}/bounces#{'/' + address if address}"

@@ -23,7 +23,6 @@ module Mailgun
     end
 
     # Adds a mailing list member with a given address
-    # TODO add name, vars, subscribed, upsert
     def add(address, member_address, name=nil, vars={}, subscribed='yes', upsert='no')
       params = {:address => member_address, :subscribed => subscribed, :upsert => 'no'}
       params[:name] = name if name
@@ -45,10 +44,9 @@ module Mailgun
       Mailgun.submit :delete, list_member_url(address, member_address)
     end
 
-
     private
 
-    # Helper method to generate the proper url for Mailgun mailbox API calls
+    # Helper method to generate the proper url for Mailgun list members API calls
     def list_member_url(address, member_address=nil)
       "#{@mailgun.base_url}/lists#{'/' + address}/members#{'/' + member_address if member_address}"
     end

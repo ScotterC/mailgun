@@ -4,8 +4,7 @@ module Mailgun
     def initialize(mailgun)
       @mailgun = mailgun
     end
-    
-
+  
     ## List functionality
 
     # TODO add default domain functionality for the address names of lists
@@ -47,10 +46,9 @@ module Mailgun
     	Mailgun.submit :delete, list_url(address)
     end
 
-
     private
 
-    # Helper method to generate the proper url for Mailgun mailbox API calls
+    # Helper method to generate the proper url for Mailgun list API calls
     def list_url(address=nil)
       "#{@mailgun.base_url}/lists#{'/' + address if address}"
     end
