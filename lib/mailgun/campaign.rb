@@ -10,7 +10,7 @@ module Mailgun
       response = Mailgun.submit :get, campaign_url(domain), {:limit => limit, :skip => skip}
 
       if response
-        response["items"].collect {|item| item["name"]}
+        response["items"].collect {|item| Mailgun::Item.new(item) }
       end
     end
 

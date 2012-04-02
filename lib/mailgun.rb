@@ -19,6 +19,7 @@ require "mailgun/campaign/event"
 require "mailgun/campaign/open"
 require "mailgun/campaign/stat"
 require "mailgun/campaign/unsubscribe"
+require "mailgun/item"
 
 #require "startup"
 

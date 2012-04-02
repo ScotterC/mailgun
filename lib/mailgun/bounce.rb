@@ -11,7 +11,7 @@ module Mailgun
       response = Mailgun.submit :get, bounce_url(domain)
 
       if response
-        response["items"].collect {|item| item["address"]}
+        response["items"].collect {|item| Mailgun::Item.new(item) }
       end
     end
 

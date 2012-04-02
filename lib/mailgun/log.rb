@@ -11,7 +11,7 @@ module Mailgun
       response = get_log(domain, limit, skip)
 
       if response
-        response["items"].collect {|item| item["message"]}
+        response["items"].collect {|item| Mailgun::Item.new(item) }
       end
     end
 
@@ -20,7 +20,7 @@ module Mailgun
       response = get_log(domain, limit, skip)
       
       if response
-        response["items"].collect {|item| item["message"] if item["hap"] == "failed"}.compact!
+        response["items"].collect {|item| Mailgun::Item.new(item) if item["hap"] == "failed"}.compact!
       end
     end
 
@@ -29,7 +29,7 @@ module Mailgun
       response = get_log(domain, limit, skip)
 
       if response
-        response["items"].collect {|item| item["message"] if item["hap"] == "delivered"}.compact!
+        response["items"].collect {|item| Mailgun::Item.new(item) if item["hap"] == "delivered"}.compact!
       end
     end
 

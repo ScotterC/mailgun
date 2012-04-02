@@ -14,7 +14,7 @@ module Mailgun
       response = Mailgun.submit :get, list_url
 
       if response
-        response["items"].collect {|item| item["address"]}
+        response["items"].collect {|item| Mailgun::Item.new(item) }
       end
     end
 

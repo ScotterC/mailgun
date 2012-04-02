@@ -12,7 +12,7 @@ module Mailgun
       response = Mailgun.submit :get, mailbox_url(domain)
 
       if response
-        response["items"].collect {|item| item["mailbox"]}
+        response["items"].collect {|item| Mailgun::Item.new(item)}
       end
     end
     
