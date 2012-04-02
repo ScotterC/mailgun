@@ -51,7 +51,7 @@ module Mailgun
     end
 
     def unsubscribes(domain = Mailgun.domain, campaign_id)
-      Mailgun::Campaign::Unsubscribe.list(domain, campaign_id)
+      Mailgun::Campaign::Unsubscribe.new(@mailgun, self).list(domain, campaign_id)
     end
 
     private

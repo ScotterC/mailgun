@@ -32,6 +32,10 @@ module Mailgun
       @bounces ||= Mailgun::Bounce.new(self)
     end
     
+    def campaigns
+      @campaings ||= Mailgun::Campaign.new(self)
+    end
+    
     def unsubscribes
       @unsubscribes ||= Mailgun::Unsubscribe.new(self)
     end
